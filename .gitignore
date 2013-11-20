@@ -32,5 +32,6 @@ proguard/
 *.iws
 .idea/
 
-#store lib
-servdroid-store.jar
+#Generated code
+.apt_generated/
+.factorypath
