@@ -15,8 +15,17 @@
  */
 package com.kitkatmachine.component;
 
+import javax.inject.Inject;
+
+import android.util.Log;
+
 public class TastyCookie implements Cookie{
 
+	@Inject
+	public TastyCookie(){
+		Log.i(getClass().getSimpleName(), "New cookie");
+	}
+	
 	@Override
 	public String getComponentName() {
 		return getClass().getSimpleName();

@@ -13,27 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.kitkatmachine.component;
+package com.kitkatmachine.module;
 
-import javax.inject.Inject;
+import com.google.inject.AbstractModule;
+import com.kitkatmachine.component.Chocolate;
+import com.kitkatmachine.component.Cookie;
+import com.kitkatmachine.provider.ChocolateProvider;
+import com.kitkatmachine.provider.CookieProvider;
 
-import android.util.Log;
+public class IngredientsModule extends AbstractModule {
 
-public class ChocolateWithMilk implements Chocolate {
-
-	@Inject
-	public ChocolateWithMilk(){
-		Log.i(getClass().getSimpleName(), "New chocolate");
+	@Override
+	protected void configure() {
+		bind(Cookie.class).toProvider(CookieProvider.class);
+		bind(Chocolate.class).toProvider(ChocolateProvider.class);
 	}
 	
-	@Override
-	public String getComponentName() {
-		return getClass().getSimpleName();
-	}
-
-	@Override
-	public String getChocolate() {
-		return "Chocolate with milk";
-	}
-
 }

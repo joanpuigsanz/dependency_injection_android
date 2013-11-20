@@ -15,25 +15,12 @@
  */
 package com.kitkatmachine.component;
 
-import javax.inject.Inject;
+public interface Heater extends Component {
 
-import android.util.Log;
+	public void on();
 
-public class ChocolateWithMilk implements Chocolate {
+	public void off();
 
-	@Inject
-	public ChocolateWithMilk(){
-		Log.i(getClass().getSimpleName(), "New chocolate");
-	}
-	
-	@Override
-	public String getComponentName() {
-		return getClass().getSimpleName();
-	}
-
-	@Override
-	public String getChocolate() {
-		return "Chocolate with milk";
-	}
+	public Chocolate melt(Chocolate chocolate);
 
 }

@@ -15,25 +15,8 @@
  */
 package com.kitkatmachine.component;
 
-import javax.inject.Inject;
+public interface Component {
 
-import android.util.Log;
-
-public class ChocolateWithMilk implements Chocolate {
-
-	@Inject
-	public ChocolateWithMilk(){
-		Log.i(getClass().getSimpleName(), "New chocolate");
-	}
-	
-	@Override
-	public String getComponentName() {
-		return getClass().getSimpleName();
-	}
-
-	@Override
-	public String getChocolate() {
-		return "Chocolate with milk";
-	}
+	public String getComponentName();
 
 }

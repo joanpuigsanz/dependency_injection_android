@@ -13,27 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.kitkatmachine.component;
+package com.kitkatmachine.module;
 
-import javax.inject.Inject;
+import com.google.inject.AbstractModule;
+import com.kitkatmachine.component.ElectricHeater;
+import com.kitkatmachine.component.Heater;
+import com.kitkatmachine.component.KitKatMachine;
+import com.kitkatmachine.component.KitKatRobotMold;
+import com.kitkatmachine.component.Machine;
+import com.kitkatmachine.component.Mold;
 
-import android.util.Log;
+public class MachineModule extends AbstractModule {
 
-public class ChocolateWithMilk implements Chocolate {
-
-	@Inject
-	public ChocolateWithMilk(){
-		Log.i(getClass().getSimpleName(), "New chocolate");
-	}
 	
 	@Override
-	public String getComponentName() {
-		return getClass().getSimpleName();
-	}
-
-	@Override
-	public String getChocolate() {
-		return "Chocolate with milk";
+	protected void configure() {
+		bind(Heater.class).to(ElectricHeater.class).asEagerSingleton();
+		
+		bind(Mold.class).to(KitKatRobotMold.class);
+		bind(Machine.class).to(KitKatMachine.class);
+		
 	}
 
 }

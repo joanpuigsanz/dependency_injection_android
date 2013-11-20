@@ -19,21 +19,20 @@ import javax.inject.Inject;
 
 import android.util.Log;
 
-public class ChocolateWithMilk implements Chocolate {
+public class TastyCookie implements Cookie{
 
 	@Inject
-	public ChocolateWithMilk(){
-		Log.i(getClass().getSimpleName(), "New chocolate");
+	public TastyCookie(){
+		Log.i(getClass().getSimpleName(), "New cookie");
 	}
-	
 	@Override
 	public String getComponentName() {
 		return getClass().getSimpleName();
 	}
 
 	@Override
-	public String getChocolate() {
-		return "Chocolate with milk";
+	public String getCookie() {
+		return "Cookie";
 	}
 
 }

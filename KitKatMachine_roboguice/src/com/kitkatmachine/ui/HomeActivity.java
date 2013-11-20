@@ -13,27 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.kitkatmachine.component;
+package com.kitkatmachine.ui;
 
-import javax.inject.Inject;
+import roboguice.activity.RoboFragmentActivity;
+import android.os.Bundle;
 
-import android.util.Log;
-
-public class ChocolateWithMilk implements Chocolate {
-
-	@Inject
-	public ChocolateWithMilk(){
-		Log.i(getClass().getSimpleName(), "New chocolate");
-	}
-	
-	@Override
-	public String getComponentName() {
-		return getClass().getSimpleName();
-	}
+public class HomeActivity extends RoboFragmentActivity {
 
 	@Override
-	public String getChocolate() {
-		return "Chocolate with milk";
-	}
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(android.R.id.content, HomeFragment.newInstance()).commit();
+		}
+	}
 }

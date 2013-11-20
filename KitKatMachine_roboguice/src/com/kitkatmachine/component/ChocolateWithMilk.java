@@ -20,12 +20,12 @@ import javax.inject.Inject;
 import android.util.Log;
 
 public class ChocolateWithMilk implements Chocolate {
-
+	
 	@Inject
 	public ChocolateWithMilk(){
 		Log.i(getClass().getSimpleName(), "New chocolate");
 	}
-	
+
 	@Override
 	public String getComponentName() {
 		return getClass().getSimpleName();
