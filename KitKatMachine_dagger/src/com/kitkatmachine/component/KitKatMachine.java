@@ -24,11 +24,12 @@ public class KitKatMachine implements Machine{
 	private Mold mold;
 	
 	// We don't want to load the heater until we really need it
-	@Inject Lazy<Heater> heater;
+	private Lazy<Heater> heater;
 	
 	@Inject
-	public KitKatMachine(Mold mold) {
+	public KitKatMachine(Mold mold, Lazy<Heater> heater) {
 		this.mold = mold;
+		this.heater = heater;
 	}
 
 	@Override
