@@ -23,12 +23,12 @@ public class KitKatMachine implements Machine{
 
 	private Mold mold;
 	
-	//This is injected as an eager singleton
-	@Inject Heater heater;
+	private Heater heater;
 	
 	@Inject
-	public KitKatMachine(Mold mold) {
+	public KitKatMachine(Mold mold, Heater heater) {
 		this.mold = mold;
+		this.heater = heater;
 	}
 
 	@Override

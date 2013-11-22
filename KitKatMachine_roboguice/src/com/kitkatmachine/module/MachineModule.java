@@ -29,7 +29,6 @@ public class MachineModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		bind(Heater.class).to(ElectricHeater.class);
-		
 		bind(Mold.class).to(KitKatRobotMold.class);
 		bind(Machine.class).to(KitKatMachine.class);
 		

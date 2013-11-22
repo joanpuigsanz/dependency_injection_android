@@ -25,6 +25,7 @@ public class TastyCookie implements Cookie{
 	public TastyCookie(){
 		Log.i(getClass().getSimpleName(), "New cookie");
 	}
+	
 	@Override
 	public String getComponentName() {
 		return getClass().getSimpleName();
