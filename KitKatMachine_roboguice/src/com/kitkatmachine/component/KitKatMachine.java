@@ -18,6 +18,8 @@ package com.kitkatmachine.component;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import android.util.Log;
+
 @Singleton
 public class KitKatMachine implements Machine{
 
@@ -29,6 +31,7 @@ public class KitKatMachine implements Machine{
 	public KitKatMachine(Mold mold, Heater heater) {
 		this.mold = mold;
 		this.heater = heater;
+		Log.i(getClass().getSimpleName(), "New machine created");
 	}
 
 	@Override
@@ -42,6 +45,7 @@ public class KitKatMachine implements Machine{
 		sb.append("Puting the cookie and the chocolate in to the mold" + "\n");
 		mold.putToghether(cookie, chocolate);
 		sb.append("Your KitKat is ready!" + "\n");
+		heater.off();
 		
 		return sb.toString();
 	}

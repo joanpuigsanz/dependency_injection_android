@@ -15,33 +15,45 @@
  */
 package com.kitkatmachine.component;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import android.util.Log;
 
 @Singleton
 public class ElectricHeater implements Heater {
 
 	private boolean heating;
+	
+	@Inject
+	public ElectricHeater(){
+		Log.i(getClass().getSimpleName(), "New heater created");
+	}
 
 	@Override
 	public String getComponentName() {
-		return getClass().getSimpleName() + hashCode();
+		return getClass().getSimpleName();
 	}
 
 	@Override
 	public void on() {
 		heating = true;
+		Log.i(getClass().getSimpleName(), "Turning on heater");
 	}
 
 	@Override
 	public void off() {
 		heating = false;
+		Log.i(getClass().getSimpleName(), "Turning off heater");
 	}
 
 	@Override
 	public Chocolate melt(Chocolate chocolate) {
 		if (heating){
+			Log.i(getClass().getSimpleName(), "Melting the chocolate");
 			return new MeltChocolate(chocolate);
 		}
+		Log.i(getClass().getSimpleName(), "The heater is off so it can not melt the chocolate");
 		return chocolate;
 	}
 
@@ -51,6 +63,7 @@ public class ElectricHeater implements Heater {
 
 		MeltChocolate(Chocolate chocolate) {
 			this.original = chocolate;
+			Log.i(getClass().getSimpleName(), "New melted chocolate");
 		}
 
 		@Override

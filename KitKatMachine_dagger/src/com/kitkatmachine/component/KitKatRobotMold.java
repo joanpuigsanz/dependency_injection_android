@@ -15,13 +15,22 @@
  */
 package com.kitkatmachine.component;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import android.util.Log;
 
+@Singleton
 public class KitKatRobotMold implements Mold{
 	
 	private Cookie cookie;
 	private Chocolate meltedChocolate;
 
+	@Inject
+	public KitKatRobotMold(){
+		Log.i(getClass().getSimpleName(), "new mold created");
+	}
+	
 	@Override
 	public String getComponentName() {
 		return getClass().getSimpleName();
@@ -34,7 +43,7 @@ public class KitKatRobotMold implements Mold{
 		this.cookie.getCookie();
 		this.meltedChocolate.getChocolate();
 		
-		Log.i(getComponentName(), "Putting the cookie and the chocolate together");
+		Log.i(getClass().getSimpleName(), "Putting the cookie and the chocolate together");
 	}
 
 }

@@ -23,7 +23,7 @@ public class ChocolateWithMilk implements Chocolate {
 	
 	@Inject
 	public ChocolateWithMilk(){
-		Log.i(getClass().getSimpleName(), "New chocolate");
+		Log.i(getClass().getSimpleName(), "New chocolate created");
 	}
 
 	@Override

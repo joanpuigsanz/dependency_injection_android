@@ -17,6 +17,8 @@ package com.kitkatmachine.component;
 
 import javax.inject.Inject;
 
+import android.util.Log;
+
 import dagger.Lazy;
 
 public class KitKatMachine implements Machine{
@@ -30,6 +32,7 @@ public class KitKatMachine implements Machine{
 	public KitKatMachine(Mold mold, Lazy<Heater> heater) {
 		this.mold = mold;
 		this.heater = heater;
+		Log.i(getClass().getSimpleName(), "New machine created");
 	}
 
 	@Override
@@ -43,6 +46,7 @@ public class KitKatMachine implements Machine{
 		sb.append("Puting the cookie and the chocolate in to the mold" + "\n");
 		mold.putToghether(cookie, chocolate);
 		sb.append("Your KitKat is ready!" + "\n");
+		heater.get().off();
 		
 		return sb.toString();
 	}

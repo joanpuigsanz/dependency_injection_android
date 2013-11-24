@@ -19,6 +19,7 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 
 import roboguice.fragment.RoboFragment;
+import roboguice.inject.InjectResource;
 import roboguice.inject.InjectView;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -40,8 +41,8 @@ public class HomeFragment extends RoboFragment implements OnClickListener {
 	@InjectView(R.id.componentsTextView) private TextView componentsTextView;
 	@InjectView(R.id.makeKitKatButton) private Button makeKitKatButton;
 	
-	@Inject private ActivityTitleController titleControler;
-
+	@InjectResource(R.string.app_name) private String appName;
+	
 	@Inject Provider<Chocolate> chocolate;
 	@Inject Provider<Cookie> cookie;
 

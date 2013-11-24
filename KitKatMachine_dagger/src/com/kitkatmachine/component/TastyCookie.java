@@ -23,7 +23,7 @@ public class TastyCookie implements Cookie{
 
 	@Inject
 	public TastyCookie(){
-		Log.i(getClass().getSimpleName(), "New cookie");
+		Log.i(getClass().getSimpleName(), "new cookie created");
 	}
 	
 	@Override
